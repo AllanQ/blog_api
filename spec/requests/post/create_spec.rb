@@ -137,10 +137,11 @@ RSpec.describe 'Post', type: :request do
     end
 
     it "doesn't create connection when params without title and content" do
+      connection_amount = Connection.all.count
       post(url,
            params: Oj.dump(params_without_title_and_content),
            headers: headers)
-      expect(Connection.all.count).to eql(0)
+      expect(Connection.all.count).to eql(connection_amount)
     end
 
     it 'returns error when params without login' do
