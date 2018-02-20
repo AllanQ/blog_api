@@ -187,18 +187,18 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_model_serializers (~> 0.10.0)
-  byebug
-  dry-transaction
-  dry-validation
-  listen (>= 3.0.5, < 3.2)
-  oj
-  pg (~> 0.18)
-  puma (~> 3.7)
-  rails (~> 5.1.4)
-  rspec-rails (~> 3.7)
-  spring
-  spring-watcher-listen (~> 2.0.0)
+  active_model_serializers (= 0.10.7)
+  byebug (= 10.0.0)
+  dry-transaction (= 0.10.2)
+  dry-validation (= 0.11.1)
+  listen (= 3.1.5)
+  oj (= 3.4)
+  pg (= 0.21.0)
+  puma (= 3.11.2)
+  rails (= 5.1.4)
+  rspec-rails (= 3.7.2)
+  spring (= 2.0.2)
+  spring-watcher-listen (= 2.0.1)
   tzinfo-data
 
 BUNDLED WITH
