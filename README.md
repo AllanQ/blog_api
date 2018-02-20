@@ -2,7 +2,7 @@
 
 JSON API блога
 
-ruby  2.5.0
+ruby  2.5.0<br/>
 rails 5.1.4
 
 сущности:
@@ -18,32 +18,32 @@ rails 5.1.4
 
 База данных PostgreSQL
 
-development:
-  database: blog_api_development
-  username: blog_api
-  password: blog_api
+development:<br/>
+  database: blog_api_development<br/>
+  username: blog_api<br/>
+  password: blog_api<br/>
 
-test:
-  database: blog_api_test
-  username: blog_api
-  password: blog_api
+test:<br/>
+  database: blog_api_test<br/>
+  username: blog_api<br/>
+  password: blog_api<br/>
 
-production:
-  database: blog_api_production
-  username: blog_api
-  password: blog_api
+production:<br/>
+  database: blog_api_production<br/>
+  username: blog_api<br/>
+  password: blog_api<br/>
 
 
 Примеры запросов:
 
-1.Создать пост
-curl -H "CONTENT_TYPE: application/vnd.api+JSON" -H "ACCEPT: application/vnd.api+json" -X POST -d '{"title": "Post title", "content": "Some post content", "login": "login", "ip": "127.0.0.1"' http://0.0.0.0:3000/create
+1.Создать пост<br/>
+curl -H "CONTENT_TYPE: application/vnd.api+JSON" -H "ACCEPT: application/vnd.api+json" -X POST -d '{"title": "Post title", "content": "Some post content", "login": "login", "ip": "127.0.0.1"}' http://0.0.0.0:3000/create
 
-2.Поставить оценку посту
-curl -H "CONTENT_TYPE: application/vnd.api+JSON" -H "ACCEPT: application/vnd.api+json" -X POST -d '{"post_id": 1, "rate": 5' http://0.0.0.0:3000/rate
+2.Поставить оценку посту<br/>
+curl -H "CONTENT_TYPE: application/vnd.api+JSON" -H "ACCEPT: application/vnd.api+json" -X POST -d '{"post_id": 1, "rate": 5}' http://0.0.0.0:3000/rate
 
-3.Получить топ N постов по среднему рейтингу
+3.Получить топ N постов по среднему рейтингу<br/>
 curl -H "CONTENT_TYPE: application/vnd.api+JSON" -H "ACCEPT: application/vnd.api+json" -X POST -d '{"top_number": 3}' http://0.0.0.0:3000/top
 
-4.Получить список айпи, с которых постило несколько разных авторов
+4.Получить список айпи, с которых постило несколько разных авторов<br/>
 curl -H "ACCEPT: application/vnd.api+json" -X GET http://0.0.0.0:3000/popular_ip
