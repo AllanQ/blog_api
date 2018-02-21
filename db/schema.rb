@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180219150716) do
+ActiveRecord::Schema.define(version: 20180221212715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20180219150716) do
   create_table "connections", id: false, force: :cascade do |t|
     t.string "ip_address", limit: 45, null: false
     t.integer "user_id", null: false
-    t.index ["ip_address", "user_id"], name: "index_connections_on_ip_address_and_user_id", unique: true
   end
 
   create_table "ips", primary_key: "address", id: :string, limit: 45, force: :cascade do |t|
