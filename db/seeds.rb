@@ -28,5 +28,9 @@ when 'development'
   end
 
   finish_time = Time.now
-  pp "time: #{finish_time - start_time}"
+  sec = finish_time - start_time
+  time = [sec / (60 * 60), (sec / 60) % 60, sec % 60].map do |t|
+    t.round.to_s.rjust(2, '0')
+  end.join(':')
+  pp "Seeds execution time: #{time}"
 end
