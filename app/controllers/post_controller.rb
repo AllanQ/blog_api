@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require "#{Rails.root}/app/dry/transaction/post_controller/create_post"
-require "#{Rails.root}/app/dry/transaction/post_controller/rate_post"
-require "#{Rails.root}/app/dry/transaction/post_controller/top_post"
-require "#{Rails.root}/lib/popular_ip_post"
-
 class PostController < ApplicationController
   def create
     result = CreatePost.new.call(params: params).value

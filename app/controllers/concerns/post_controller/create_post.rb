@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
-require "#{Rails.root}/app/dry/validation/controllers/validate_input_post_create"
 require 'dry/transaction'
 
-class CreatePost
+class PostController::CreatePost
   include Dry::Transaction
 
   step :validate_params
@@ -13,7 +12,7 @@ class CreatePost
   step :create_post
 
   def validate_params(input)
-    validation_result = ValidateInputPostCreate.new.call(input[:params])
+    validation_result = ValidateInput.new.call(input[:params])
     if validation_result.success?
       Right(params: validation_result.output)
     else

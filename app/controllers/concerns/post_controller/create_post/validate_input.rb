@@ -3,7 +3,7 @@
 require 'dry-validation'
 require 'resolv'
 
-class ValidateInputPostCreate
+class PostController::CreatePost::ValidateInput
   def call(params)
     schema = Dry::Validation.Schema do
       configure { config.input_processor = :sanitizer }

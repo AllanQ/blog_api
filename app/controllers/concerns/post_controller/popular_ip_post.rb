@@ -1,14 +1,6 @@
 # frozen_string_literal: true
 
-class Result
-  attr_reader :value
-
-  def initialize(value)
-    @value = value
-  end
-end
-
-class PopularIpPost
+class PostController::PopularIpPost
   SQL_QUERY = <<-HEREDOC
     SELECT *
     FROM (

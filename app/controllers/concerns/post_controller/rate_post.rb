@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 
-require "#{Rails.root}/app/dry/validation/controllers/validate_input_post_rate"
 require 'dry/transaction'
 
-class RatePost
+class PostController::RatePost
   include Dry::Transaction
 
   step :validate_params
   step :define_and_rate_post
 
   def validate_params(input)
-    validation_result = ValidateInputPostRate.new.call(input[:params])
+    validation_result = ValidateInput.new.call(input[:params])
     if validation_result.success?
       Right(params: validation_result.output)
     else

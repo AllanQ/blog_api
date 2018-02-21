@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 
-require "#{Rails.root}/app/dry/validation/controllers/validate_input_post_top"
 require 'dry/transaction'
 
-class TopPost
+class PostController::TopPost
   include Dry::Transaction
 
   step :validate_params
   step :define_top_post
 
   def validate_params(input)
-    validation_result = ValidateInputPostTop.new.call(input[:params])
+    validation_result = ValidateInput.new.call(input[:params])
     if validation_result.success?
       Right(params: validation_result.output)
     else
@@ -22,7 +21,7 @@ class TopPost
     posts = Post.order('rating DESC NULLS LAST')
                 .limit(input[:params][:top_number])
                 .pluck(:title, :content)
-                .map { |values| Hash[[:title, :content].zip(values)] }
+                .map { |values| Hash[%i[title content].zip(values)] }
     if posts.present?
       Right(status: 200, response: posts)
     else

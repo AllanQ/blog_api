@@ -2,7 +2,7 @@
 
 require 'dry-validation'
 
-class ValidateInputPostRate
+class PostController::RatePost::ValidateInput
   def call(params)
     schema = Dry::Validation.Schema do
       configure { config.input_processor = :sanitizer }
