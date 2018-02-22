@@ -17,7 +17,6 @@ RSpec.describe 'Post', type: :request do
       login = [*('A'..'Z'), *('a'..'z'), *('0'..'9')].sample(20).join
       user_id = User.create!(login: login).id
       ip_address = IPAddr.new(rand(2**32), Socket::AF_INET).to_s
-      Ip.create!(address: ip_address)
       Connection.create!(ip_address: ip_address, user_id: user_id)
       Post.create!(user_id: user_id,
                    ip_address: ip_address,
@@ -32,7 +31,6 @@ RSpec.describe 'Post', type: :request do
       login = [*('A'..'Z'), *('a'..'z'), *('0'..'9')].sample(20).join
       user_id = User.create!(login: login).id
       ip_address = IPAddr.new(rand(2**32), Socket::AF_INET).to_s
-      Ip.create!(address: ip_address)
       Connection.create!(ip_address: ip_address, user_id: user_id)
       Post.create!(user_id: user_id,
                    ip_address: ip_address,

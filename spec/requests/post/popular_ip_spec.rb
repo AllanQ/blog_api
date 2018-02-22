@@ -15,12 +15,10 @@ RSpec.describe 'Post', type: :request do
     before do
       Connection.delete_all
       User.delete_all
-      Ip.delete_all
       10.times do
         login = [*('A'..'Z'), *('a'..'z'), *('0'..'9')].sample(20).join
         user_id = User.create!(login: login).id
         ip_address = IPAddr.new(rand(2**32), Socket::AF_INET).to_s
-        Ip.create!(address: ip_address)
         Connection.create!(ip_address: ip_address, user_id: user_id)
       end
     end
@@ -31,7 +29,6 @@ RSpec.describe 'Post', type: :request do
         another_user_id = User.create!(login: 'Bob').id
         one_anoth_user_id = User.create!(login: 'Mike').id
         %w[127.0.0.1 127.0.0.2 127.0.0.3].each do |ip_address|
-          Ip.create!(address: ip_address)
           Connection.create!(ip_address: ip_address, user_id: user_id)
           Connection.create!(ip_address: ip_address, user_id: another_user_id)
           Connection.create!(ip_address: ip_address, user_id: one_anoth_user_id)

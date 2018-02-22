@@ -74,17 +74,6 @@ RSpec.describe 'Post', type: :request do
       expect(User.all.count).to eql(user_amount + 1)
     end
 
-    it 'successfuly creates ip' do
-      ip_amount = Ip.all.count
-
-      post url, params: Oj.dump(params), headers: headers
-      expect(response.status).to eql(200)
-
-      ip = Ip.find_by address: ip_address
-      expect(ip.users_count).to eql(1)
-      expect(Ip.all.count).to eql(ip_amount + 1)
-    end
-
     it 'successfuly creates connection' do
       connection_amount = Connection.all.count
 
@@ -117,13 +106,6 @@ RSpec.describe 'Post', type: :request do
 
       error = { content: ['must be String'] }
       expect(Oj.load(response.body)).to eql(error)
-    end
-
-    it "doesn't create ip when params without content" do
-      ip_amount = Ip.all.count
-      post url, params: Oj.dump(params_without_content), headers: headers
-
-      expect(Ip.all.count).to eql(ip_amount)
     end
 
     it 'returns error when params without title and content' do

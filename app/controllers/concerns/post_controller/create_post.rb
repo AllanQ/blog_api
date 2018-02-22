@@ -7,7 +7,6 @@ class PostController::CreatePost
 
   step :validate_params
   step :define_user
-  step :define_ip
   step :define_connection
   step :create_post
 
@@ -30,20 +29,11 @@ class PostController::CreatePost
     Right(input.merge(user_id: user.id, is_user_new: is_user_new))
   end
 
-  def define_ip(input)
-    is_ip_new = false
-    ip = Ip.find_by(address: input[:params][:ip_address])
-    if ip
-      ip.increment!(:users_count).save! if input[:is_user_new]
-    else
-      Ip.create!(address: input[:params][:ip_address])
-      is_ip_new = true
-    end
-    Right(input.merge(is_ip_new: is_ip_new))
-  end
-
   def define_connection(input)
-    if input[:is_user_new] || input[:is_ip_new]
+    if input[:is_user_new] ||
+       !Connection.find_by(user_id: input[:user_id],
+                           ip_address: input[:params][:ip_address])
+
       Connection.create!(ip_address: input[:params][:ip_address],
                          user_id:    input[:user_id])
     end

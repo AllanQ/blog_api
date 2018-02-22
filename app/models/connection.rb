@@ -1,4 +1,5 @@
 class Connection < ApplicationRecord
-  belongs_to :ip, foreign_key: :ip_address
+  self.primary_keys = :user_id,:ip_address
+
   belongs_to :user
 end

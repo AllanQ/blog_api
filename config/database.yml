@@ -5,18 +5,18 @@ default: &default
 
 development:
   <<: *default
-  database: blog_api_development
-  username: blog_api
-  password: blog_api
+  database: blog_api_2_development
+  username: blog_api_2
+  password: blog_api_2
 
 test:
   <<: *default
-  database: blog_api_test
-  username: blog_api
-  password: blog_api
+  database: blog_api_2_test
+  username: blog_api_2
+  password: blog_api_2
 
 production:
   <<: *default
-  database: blog_api_production
-  username: blog_api
-  password: blog_api
+  database: blog_api_2_production
+  username: blog_api_2
+  password: blog_api_2

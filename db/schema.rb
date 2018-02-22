@@ -10,19 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180221212715) do
+ActiveRecord::Schema.define(version: 20180221221731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "connections", id: false, force: :cascade do |t|
+  create_table "connections", primary_key: ["user_id", "ip_address"], force: :cascade do |t|
     t.string "ip_address", limit: 45, null: false
     t.integer "user_id", null: false
-  end
-
-  create_table "ips", primary_key: "address", id: :string, limit: 45, force: :cascade do |t|
-    t.integer "users_count", default: 1, null: false
-    t.index ["users_count"], name: "index_ips_on_users_count"
   end
 
   create_table "posts", force: :cascade do |t|

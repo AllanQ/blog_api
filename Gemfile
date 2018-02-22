@@ -8,6 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'active_model_serializers', '0.10.7'
+gem 'composite_primary_keys', '10.0.2'
 gem 'dry-transaction', '0.10.2'
 gem 'dry-validation', '0.11.1'
 gem 'oj', '3.4'
