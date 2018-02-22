@@ -11,10 +11,10 @@ when 'development'
   50.times { ips << IPAddr.new(rand(2**32), Socket::AF_INET).to_s }
   pp ips
 
-  title = 'A' * 75
+  title = 'A' * 7
   pp title
 
-  content = 'Z' * 30_000
+  content = 'Z' * 30
   pp content
 
   rates = [1, 2, 3, 4, 5]
