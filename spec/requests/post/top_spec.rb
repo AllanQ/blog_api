@@ -58,8 +58,8 @@ RSpec.describe 'Post', type: :request do
         resp_body = [{ title: 'third',  content: 'raiting 5000' },
                      { title: 'first',  content: 'raiting 4000' },
                      { title: 'fourth', content: 'raiting 2000' },
-                     { title: 'second', content: 'raiting nil' },
-                     { title: 'fifth',  content: 'raiting nil' }]
+                     { title: 'fifth',  content: 'raiting nil' },
+                     { title: 'second', content: 'raiting nil' }]
         expect(Oj.load(response.body)).to eql(resp_body)
       end
 
@@ -70,8 +70,8 @@ RSpec.describe 'Post', type: :request do
         resp_body = [{ title: 'third',  content: 'raiting 5000' },
                      { title: 'first',  content: 'raiting 4000' },
                      { title: 'fourth', content: 'raiting 2000' },
-                     { title: 'second', content: 'raiting nil' },
-                     { title: 'fifth',  content: 'raiting nil' }]
+                     { title: 'fifth',  content: 'raiting nil' },
+                     { title: 'second', content: 'raiting nil' }]
         expect(Oj.load(response.body)).to eql(resp_body)
       end
 

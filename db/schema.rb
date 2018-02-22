@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180221221731) do
+ActiveRecord::Schema.define(version: 20180222081258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20180221221731) do
     t.integer "rates_sum", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["rating"], name: "index_posts_on_rating"
+    t.index ["rating"], name: "index_posts_on_rating_desc_nulls_last", order: { rating: :desc }
   end
 
   create_table "users", force: :cascade do |t|
